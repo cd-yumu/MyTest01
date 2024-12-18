@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slotmuchine.html</title>
+    <style>
+        .item{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="startGame">돌리기</button>
+
+    <div class="container">
+        <p id="item0" class="item">.</p>
+        <p id="item1" class="item">.</p>
+        <p id="item2" class="item">.</p>
+    </div>
+
+    <div class="container" id="result">결과</div>
+    
+    <script>
+
+        let items = ["🍒", "🍎", "🍌", "🍈", "7"];
+        
+
+        document.querySelector("#startGame").addEventListener("click",function(){
+            
+            let isCorrect = [];
+            
+            for(let i = 0 ; i < 3 ; i++){
+                let ran = parseInt(Math.random()*5) // 0-4
+                document.querySelector("#item"+i).innerText = items[ran];
+                isCorrect.push(ran);
+            }
+            
+            if(isCorrect[0] == isCorrect[1] && isCorrect[1] == isCorrect[2]){
+                document.querySelector("#result").innerText="성공!"
+            }else{
+                document.querySelector("#result").innerText="꽝!"
+            }
+            
+
+        });
+        
+
+    </script>
+
+
+</body>
+</html>
