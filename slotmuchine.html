@@ -4,42 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>slotmuchine.html</title>
+    <style>
+        td{
+            border: 1px dotted brown;
+            width: 50px;
+            text-align: center;
+        }
+        .container{
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+        table{
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
-    <button id="startGame">돌리기</button>
+    <div class="container">
+        <button id="startGame">돌리기</button>
+    </div>
 
-    <tr>
-        <td id="item0">왜</td>
-        <td id="item1">안</td>
-        <td id="item2">돼</td>
-    </tr>
+    <div class="container">
+        <table>
+            <tr>
+                <td id="item0">왜</td>
+                <td id="item1">안</td>
+                <td id="item2">돼</td>
+            </tr>
+        </table>    
+    </div>
 
-    
     <div class="container" id="result">결과</div>
     
     <script>
 
         let items = ["🍒", "🍎", "🍌", "🍈", "7"];
         
-
+        
         document.querySelector("#startGame").addEventListener("click",function(){
             
+            // 게임 시작
             let isCorrect = [];
-            
             for(let i = 0 ; i < 3 ; i++){
                 let ran = parseInt(Math.random()*5) // 0-4
                 document.querySelector("#item"+i).innerText = items[ran];
                 isCorrect.push(ran);
             }
-            
-            // if(isCorrect[0] == isCorrect[1] && isCorrect[1] == isCorrect[2]){
-            //     document.querySelector("#result").innerText="성공!"
-            // }else{
-            //     document.querySelector("#result").innerText="꽝!"
-            // }
-            
 
+            // 시도 결과에 따른 메시지
+            if(isCorrect[0] == isCorrect[1] && isCorrect[1] == isCorrect[2]){
+                document.querySelector("#result").innerText="성공!"
+            }else{
+                document.querySelector("#result").innerText="꽝!"
+            }
         });
         
 
