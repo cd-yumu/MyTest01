@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>slotmuchine.html</title>
-    <style>
-        .item{
-            display: inline;
-        }
-    </style>
 </head>
 <body>
 
     <button id="startGame">돌리기</button>
 
-    <div class="container">
-        <p id="item0" class="item">.</p>
-        <p id="item1" class="item">.</p>
-        <p id="item2" class="item">.</p>
-    </div>
+    <tr>
+        <td id="item0">왜</td>
+        <td id="item1">안</td>
+        <td id="item2">돼</td>
+    </tr>
 
+    
     <div class="container" id="result">결과</div>
     
     <script>
@@ -37,11 +33,11 @@
                 isCorrect.push(ran);
             }
             
-            if(isCorrect[0] == isCorrect[1] && isCorrect[1] == isCorrect[2]){
-                document.querySelector("#result").innerText="성공!"
-            }else{
-                document.querySelector("#result").innerText="꽝!"
-            }
+            // if(isCorrect[0] == isCorrect[1] && isCorrect[1] == isCorrect[2]){
+            //     document.querySelector("#result").innerText="성공!"
+            // }else{
+            //     document.querySelector("#result").innerText="꽝!"
+            // }
             
 
         });
